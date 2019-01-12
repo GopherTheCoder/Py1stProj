@@ -9,8 +9,7 @@ def index(request):
     return web.Response(body=b'<h1>Index</h1>', content_type='text/html')
 
 def when(request):
-    now = time.strftime("%H:%M:%S", time.localtime())
-    return web.Response(body=now, content_type='text/html')
+    return web.Response(body=datetime.now().strftime("%F %T"), content_type='text/html')
 
 async def init(loop):
     app = web.Application(loop=loop)
